@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
-class AnimatedContainer extends AnimatedWidget{
-  AnimatedContainer({Key key,Animation<double> animation,}):super(key: key,listenable: animation);
+class AnimatedContainer extends AnimatedWidget {
+  AnimatedContainer({
+    Key key,
+    Animation<double> animation,
+  }) : super(key: key, listenable: animation);
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +18,7 @@ class AnimatedContainer extends AnimatedWidget{
     );
   }
 }
+
 class AnimatedContainerRoute extends StatefulWidget {
   AnimatedContainerRoute({Key key}) : super(key: key);
 
@@ -25,16 +29,13 @@ class AnimatedContainerRoute extends StatefulWidget {
 }
 
 class _AnimatedContainerRouteState extends State<AnimatedContainerRoute> with SingleTickerProviderStateMixin {
-
   Animation<double> animation;
   AnimationController controller;
-
 
   @override
   void initState() {
     super.initState();
-    controller = new AnimationController(
-        duration: const Duration(seconds: 3), vsync: this);
+    controller = new AnimationController(duration: const Duration(seconds: 3), vsync: this);
     //图片宽高从0变到300
     animation = new Tween(begin: 0.0, end: 300.0).animate(controller);
     //启动动画
@@ -46,18 +47,28 @@ class _AnimatedContainerRouteState extends State<AnimatedContainerRoute> with Si
     super.dispose();
     //路由销毁时需要释放动画资源
     controller.dispose();
-
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Widget"),
-      ),
-      body: AnimatedContainer(animation: animation,)
-    );
+        appBar: AppBar(
+          title: Text("Widget"),
+        ),
+        body: AnimatedBuilder(
+          animation: animation,
+          child: Container(
+            color: Colors.amber,
+          ),
+          builder: (BuildContext context, Widget child) {
+            return Center(
+              child: Container(
+                height: animation.value,
+                width: animation.value,
+                child: child,
+              ),
+            );
+          },
+        ));
   }
 }
-
-
