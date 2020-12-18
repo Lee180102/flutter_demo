@@ -35,10 +35,16 @@ class CustomFadeRoute extends PageRoute {
 
   @override
   Widget buildTransitions(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
-    return FadeTransition(
-      opacity: animation,
-      child: builder(context),
-    );
+    //当前路由被激活，是打开新路由
+    if(isActive) {
+      return FadeTransition(
+        opacity: animation,
+        child: builder(context),
+      );
+    }else{
+      //是返回，则不应用过渡动画
+      return Padding(padding: EdgeInsets.zero);
+    }
   }
 }
 
