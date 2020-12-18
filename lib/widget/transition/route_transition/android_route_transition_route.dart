@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/widget/transition/route_transition/custom_fade_route.dart';
 
 class AndroidRouteTransitionRoute extends StatefulWidget {
   AndroidRouteTransitionRoute({Key key}) : super(key: key);
@@ -16,14 +17,12 @@ class _AndroidRouteTransitionRouteState extends State<AndroidRouteTransitionRout
       ),
       body: ListView(
         children: [
-          RaisedButton(
-              child: Text("BasicTransition"),
-              onPressed: () => Navigator.push(context, PageRouteBuilder(pageBuilder: (BuildContext context, Animation animation, Animation secondaryAnimation) {
-                    return FadeTransition(
-                      opacity: animation,
-                      child: AndroidRouteTransitionLeafRoute(),
-                    );
-                  }))),
+          RaisedButton(child: Text("BasicTransition"), onPressed: () => Navigator.push(
+              context,
+              CustomFadeRoute(builder: (context){
+                return AndroidRouteTransitionLeafRoute();
+              })
+          )),
         ],
       ),
     );
