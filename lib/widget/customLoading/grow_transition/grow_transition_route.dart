@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_demo/widget/customLoading/grow_ransition/grow_transition.dart';
+
+import 'grow_transition.dart';
 
 class GrowTransitionRoute extends StatefulWidget {
   GrowTransitionRoute({Key key}) : super(key: key);

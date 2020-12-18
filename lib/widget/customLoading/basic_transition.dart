@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 
-class LoadingDialog extends StatefulWidget {
-  LoadingDialog({Key key}) : super(key: key);
+class BasicTransition extends StatefulWidget {
+  BasicTransition({Key key}) : super(key: key);
 
   @override
-  _LoadingDialogState createState() => _LoadingDialogState();
+  _BasicTransitionState createState() => _BasicTransitionState();
 }
 
-class _LoadingDialogState extends State<LoadingDialog> with SingleTickerProviderStateMixin {
+class _BasicTransitionState extends State<BasicTransition> with SingleTickerProviderStateMixin {
   Animation  animation;
   Animation<Color> colorAnimation;
   AnimationController controller;
