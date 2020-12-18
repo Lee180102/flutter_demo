@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_demo/widget/chip/actor_action_chip.dart';
 import 'package:flutter_demo/widget/chip/actor_choice_chip.dart';
 import 'package:flutter_demo/widget/chip/actor_input_chip.dart';
-import 'package:flutter_demo/widget/customLoading/animated_widge/animated_container.dart';
-import 'package:flutter_demo/widget/customLoading/grow_transition/grow_transition_route.dart';
-import 'package:flutter_demo/widget/customLoading/basic_transition.dart';
+import 'package:flutter_demo/widget/transition/transition_list.dart';
 
 import 'custom_widget/chip/wrap_choice_chip/test.dart';
 import 'widget/chip/filter_chip_demo.dart';
@@ -43,9 +41,7 @@ class _DemoListState extends State<DemoList> {
           RaisedButton(child:Text("ChoiceChipDemo1"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> ActorChoiceChip()))),
           RaisedButton(child:Text("ActionChipDemo1"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> ActorActionChip()))),
           RaisedButton(child:Text("SingleChoiceChipTest"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> SingleChoiceChipTest()))),
-          RaisedButton(child:Text("animated"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> BasicTransition()))),
-          RaisedButton(child:Text("animatedContainer"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> AnimatedContainerRoute()))),
-          RaisedButton(child:Text("GrowTransitionRoute"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> GrowTransitionRoute()))),
+          RaisedButton(child:Text("Transition"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> TransitionList()))),
         ],
       ),
     );
