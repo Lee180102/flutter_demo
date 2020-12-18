@@ -16,7 +16,12 @@ class _AndroidRouteTransitionRouteState extends State<AndroidRouteTransitionRout
       ),
       body: ListView(
         children: [
-          RaisedButton(child: Text("BasicTransition"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => AndroidRouteTransitionLeafRoute()))),
+          RaisedButton(child: Text("BasicTransition"), onPressed: () => Navigator.push(
+              context,
+              PageRouteBuilder(pageBuilder: (BuildContext context,Animation animation,Animation secondaryAnimation){
+                return FadeTransition(opacity: animation,child: AndroidRouteTransitionLeafRoute(),);
+              })
+          )),
         ],
       ),
     );
