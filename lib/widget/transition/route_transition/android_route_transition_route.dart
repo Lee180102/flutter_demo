@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AndroidRouteTransitionRoute extends StatefulWidget {
@@ -16,7 +17,7 @@ class _AndroidRouteTransitionRouteState extends State<AndroidRouteTransitionRout
       ),
       body: ListView(
         children: [
-          RaisedButton(child: Text("BasicTransition"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => AndroidRouteTransitionLeafRoute()))),
+          RaisedButton(child: Text("BasicTransition"), onPressed: () => Navigator.push(context, CupertinoPageRoute(builder: (BuildContext context) => AndroidRouteTransitionLeafRoute()))),
         ],
       ),
     );
