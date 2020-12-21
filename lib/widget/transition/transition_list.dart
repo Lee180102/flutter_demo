@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/widget/transition/route_transition/android_route_transition_route.dart';
+import 'package:flutter_demo/widget/transition/stagger_transition/stagger_transition_route.dart';
 import 'package:flutter_demo/widget/transition/status_listener/transition_status_listener_route.dart';
 
+import 'animated_swicher/animated_switcher_counter_route.dart';
 import 'animated_widge/animated_container.dart';
 import 'basic_transition/basic_transition.dart';
 import 'grow_transition/grow_transition_route.dart';
@@ -42,6 +44,8 @@ class _TransitionListState extends State<TransitionList> {
           RaisedButton(child:Text("TransitionStatusListenerRoute"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> TransitionStatusListenerRoute()))),
           RaisedButton(child:Text("AndroidRouteTransitionRoute"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> AndroidRouteTransitionRoute()))),
           RaisedButton(child:Text("HeroTransitionRoute1"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> HeroTransitionRoute1()))),
+          RaisedButton(child:Text("StaggerTransitionRoute"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> StaggerTransitionRoute()))),
+          RaisedButton(child:Text("AnimatedSwitcherCounterRoute"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> AnimatedSwitcherCounterRoute()))),
         ],
       ),
     );
