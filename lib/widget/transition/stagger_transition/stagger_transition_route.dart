@@ -23,6 +23,13 @@ class _StaggerTransitionRouteState extends State<StaggerTransitionRoute> with Ti
     );
   }
 
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
+  }
+
   Future<Null> _playAnimation() async {
     try {
       //先正向执行动画

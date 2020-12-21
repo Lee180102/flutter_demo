@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/widget/transition/animated_swicher/custom_slide_transition.dart';
 
 class AnimatedSwitcherCounterRoute extends StatefulWidget {
   AnimatedSwitcherCounterRoute({Key key}) : super(key: key);
@@ -21,11 +22,12 @@ class _AnimatedSwitcherCounterRouteState extends State<AnimatedSwitcherCounterRo
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             AnimatedSwitcher(
-              duration: Duration(milliseconds: 500),
+              duration: Duration(milliseconds: 200),
               transitionBuilder: (Widget child, Animation<double> animation) {
+                var tween=Tween<Offset>(begin: Offset(1, 0), end: Offset(0, 0));
                 //执行缩放动画
-                return ScaleTransition(
-                  scale: animation,
+                return CustomSlideTransition(
+                  position:  tween.animate(animation),
                   child: child,
                 );
               },
