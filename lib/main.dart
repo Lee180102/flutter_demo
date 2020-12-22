@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/custom_widget/widget_list.dart';
 import 'package:flutter_demo/demo_list.dart';
 import 'file:///E:/Workspace/JavaWorkspace/Temps/flutter_demo/lib/widget/chip/actor_filter_chip.dart';
 
@@ -99,17 +100,15 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
             RaisedButton(
                 child: Text("Demo List"),
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) => DemoList()));
+                }),
+            RaisedButton(
+                child: Text("Widget List"),
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => WidgetList()));
                 })
           ],
         ),
