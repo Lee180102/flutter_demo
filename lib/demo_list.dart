@@ -6,6 +6,7 @@ import 'package:flutter_demo/widget/signature/signature_demo.dart';
 import 'package:flutter_demo/widget/transition/transition_list.dart';
 
 import 'custom_widget/chip/wrap_choice_chip/test.dart';
+import 'demo/getWidget/get_widget_value.dart';
 import 'widget/chip/filter_chip_demo.dart';
 
 class DemoList extends StatefulWidget {
@@ -44,6 +45,7 @@ class _DemoListState extends State<DemoList> {
           RaisedButton(child:Text("SingleChoiceChipTest"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> SingleChoiceChipTest()))),
           RaisedButton(child:Text("Transition"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> TransitionList()))),
           RaisedButton(child:Text("SignatureDemo"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> SignatureDemo()))),
+          RaisedButton(child:Text("GetWidget"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> GetWidgetValue()))),
         ],
       ),
     );
