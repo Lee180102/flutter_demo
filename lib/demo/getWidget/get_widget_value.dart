@@ -35,7 +35,7 @@ class _GetWidgetValueState extends State<GetWidgetValue> {
         itemCount: wid.length,
         itemBuilder: (BuildContext context, int index) {
           String type = wid[index];
-          return WidgetSwitch(type: type, result: result);
+          return WidgetSwitch(type: type, result: result,resultKey: type,);
         },
       ),
       persistentFooterButtons: <Widget>[
@@ -52,10 +52,11 @@ class _GetWidgetValueState extends State<GetWidgetValue> {
 }
 
 class WidgetSwitch extends StatelessWidget {
-  WidgetSwitch({Key key, @required this.type, @required this.result}) : super(key: key);
+  WidgetSwitch({Key key, @required this.type, @required this.result, @required this.resultKey}) : super(key: key);
 
   Map<String, dynamic> result = {};
   final String type;
+  final String resultKey;
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +64,7 @@ class WidgetSwitch extends StatelessWidget {
       case "String":
         return TextField(
           onChanged: (value) {
-            result["String"] = value;
+            result[resultKey] = value;
           },
         );
         break;
@@ -72,7 +73,7 @@ class WidgetSwitch extends StatelessWidget {
           inputFormatters: [LengthLimitingTextInputFormatter(20), FilteringTextInputFormatter.digitsOnly],
           keyboardType: TextInputType.number,
           onChanged: (value) {
-            result["int"] = value;
+            result[resultKey] = value;
           },
         );
         break;
