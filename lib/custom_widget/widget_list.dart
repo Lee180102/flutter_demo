@@ -4,6 +4,8 @@ import 'package:flutter_demo/widget/chip/actor_choice_chip.dart';
 import 'package:flutter_demo/widget/chip/actor_input_chip.dart';
 import 'package:flutter_demo/widget/transition/transition_list.dart';
 
+import 'list_two_class/list_two_class.dart';
+import 'list_two_class/list_two_class_route.dart';
 import 'loading_dialog/loading_dialog.dart';
 
 class WidgetList extends StatefulWidget {
@@ -35,6 +37,7 @@ class _WidgetListState extends State<WidgetList> {
       body: ListView(
         children: [
           RaisedButton(child:Text("LoadingDialog"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> LoadingDialog()))),
+          RaisedButton(child:Text("ListTwoClass"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> ListTwoClassRoute()))),
         ],
       ),
     );
