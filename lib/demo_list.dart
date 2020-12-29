@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_demo/widget/chip/actor_action_chip.dart';
 import 'package:flutter_demo/widget/chip/actor_choice_chip.dart';
 import 'package:flutter_demo/widget/chip/actor_input_chip.dart';
+import 'package:flutter_demo/widget/scaffold/scaffold_route.dart';
 import 'package:flutter_demo/widget/signature/signature_demo.dart';
 import 'package:flutter_demo/widget/transition/transition_list.dart';
 
@@ -46,6 +47,7 @@ class _DemoListState extends State<DemoList> {
           RaisedButton(child:Text("Transition"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> TransitionList()))),
           RaisedButton(child:Text("SignatureDemo"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> SignatureDemo()))),
           RaisedButton(child:Text("GetWidget"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> GetWidgetValue()))),
+          RaisedButton(child:Text("ScaffoldRoute"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> ScaffoldRoute()))),
         ],
       ),
     );
