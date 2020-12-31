@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_demo/widget/chip/actor_action_chip.dart';
 import 'package:flutter_demo/widget/chip/actor_choice_chip.dart';
 import 'package:flutter_demo/widget/chip/actor_input_chip.dart';
+import 'package:flutter_demo/widget/dismissable/dismissable_route.dart';
 import 'package:flutter_demo/widget/scaffold/scaffold_route.dart';
 import 'package:flutter_demo/widget/signature/signature_demo.dart';
 import 'package:flutter_demo/widget/transition/transition_list.dart';
 
 import 'custom_widget/chip/wrap_choice_chip/test.dart';
 import 'demo/getWidget/get_widget_value.dart';
+import 'demo/remove_item/demo01.dart';
+import 'demo/remove_item/remove_item_route.dart';
+import 'demo/remove_item/slide_button_route.dart';
 import 'widget/chip/filter_chip_demo.dart';
 
 class DemoList extends StatefulWidget {
@@ -48,6 +52,10 @@ class _DemoListState extends State<DemoList> {
           RaisedButton(child:Text("SignatureDemo"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> SignatureDemo()))),
           RaisedButton(child:Text("GetWidget"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> GetWidgetValue()))),
           RaisedButton(child:Text("ScaffoldRoute"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> ScaffoldRoute()))),
+          RaisedButton(child:Text("DismissableRoute"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> DismissableRoute1()))),
+          RaisedButton(child:Text("RemoveItemRoute"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> RemoveItemRoute()))),
+          RaisedButton(child:Text("SlideButtonRoute"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> SlideButtonRoute()))),
+          RaisedButton(child:Text("Demo01"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> Demo01()))),
         ],
       ),
     );
