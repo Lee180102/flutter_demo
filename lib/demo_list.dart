@@ -12,6 +12,9 @@ import 'demo/getWidget/get_widget_value.dart';
 import 'demo/remove_item/demo01.dart';
 import 'demo/remove_item/remove_item_route.dart';
 import 'demo/remove_item/slide_button_route.dart';
+import 'demo/time_line/my_journey_page.dart';
+import 'demo/time_line/project_demo/trace_page.dart';
+import 'demo/time_line/time_line_route.dart';
 import 'widget/chip/filter_chip_demo.dart';
 
 class DemoList extends StatefulWidget {
@@ -43,22 +46,24 @@ class _DemoListState extends State<DemoList> {
       ),
       body: ListView(
         children: [
-          RaisedButton(child:Text("FilterChipDemo1"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> FilterChipDemo()))),
-          RaisedButton(child:Text("InputChipDemo1"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> ActorInputChip()))),
-          RaisedButton(child:Text("ChoiceChipDemo1"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> ActorChoiceChip()))),
-          RaisedButton(child:Text("ActionChipDemo1"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> ActorActionChip()))),
-          RaisedButton(child:Text("SingleChoiceChipTest"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> SingleChoiceChipTest()))),
-          RaisedButton(child:Text("Transition"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> TransitionList()))),
-          RaisedButton(child:Text("SignatureDemo"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> SignatureDemo()))),
-          RaisedButton(child:Text("GetWidget"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> GetWidgetValue()))),
-          RaisedButton(child:Text("ScaffoldRoute"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> ScaffoldRoute()))),
-          RaisedButton(child:Text("DismissableRoute"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> DismissableRoute1()))),
-          RaisedButton(child:Text("RemoveItemRoute"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> RemoveItemRoute()))),
-          RaisedButton(child:Text("SlideButtonRoute"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> SlideButtonRoute()))),
-          RaisedButton(child:Text("Demo01"),onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> Demo01()))),
+          RaisedButton(child: Text("FilterChipDemo1"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => FilterChipDemo()))),
+          RaisedButton(child: Text("InputChipDemo1"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => ActorInputChip()))),
+          RaisedButton(child: Text("ChoiceChipDemo1"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => ActorChoiceChip()))),
+          RaisedButton(child: Text("ActionChipDemo1"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => ActorActionChip()))),
+          RaisedButton(child: Text("SingleChoiceChipTest"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => SingleChoiceChipTest()))),
+          RaisedButton(child: Text("Transition"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => TransitionList()))),
+          RaisedButton(child: Text("SignatureDemo"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => SignatureDemo()))),
+          RaisedButton(child: Text("GetWidget"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => GetWidgetValue()))),
+          RaisedButton(child: Text("ScaffoldRoute"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => ScaffoldRoute()))),
+          RaisedButton(child: Text("DismissableRoute"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => DismissableRoute1()))),
+          RaisedButton(child: Text("RemoveItemRoute"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => RemoveItemRoute()))),
+          RaisedButton(child: Text("SlideButtonRoute"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => SlideButtonRoute()))),
+          RaisedButton(child: Text("Demo01"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => Demo01()))),
+          RaisedButton(child: Text("TimeLineRoute"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => TimeLineRoute()))),
+          RaisedButton(child: Text("MyJourneyPageTest"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => MyJourneyPageTest()))),
+          RaisedButton(child: Text("TracePage"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => TracePage()))),
         ],
       ),
     );
   }
 }
-
