@@ -8,6 +8,7 @@ import 'package:flutter_demo/widget/signature/signature_demo.dart';
 import 'package:flutter_demo/widget/transition/transition_list.dart';
 
 import 'custom_widget/chip/wrap_choice_chip/test.dart';
+import 'demo/datetime_picker/datetime_picker.dart';
 import 'demo/getWidget/get_widget_value.dart';
 import 'demo/remove_item/demo01.dart';
 import 'demo/remove_item/remove_item_route.dart';
@@ -39,7 +40,6 @@ class _DemoListState extends State<DemoList> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       appBar: AppBar(
         title: Text("Demo List"),
@@ -62,6 +62,7 @@ class _DemoListState extends State<DemoList> {
           RaisedButton(child: Text("TimeLineRoute"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => TimeLineRoute()))),
           RaisedButton(child: Text("MyJourneyPageTest"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => MyJourneyPageTest()))),
           RaisedButton(child: Text("TracePage"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => TracePage()))),
+          RaisedButton(child: Text("DatetimePicker"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => DatetimePicker()))),
         ],
       ),
     );
