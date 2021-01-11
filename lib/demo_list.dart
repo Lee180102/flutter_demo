@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/custom_widget/double_input/double_input_page.dart';
 import 'package:flutter_demo/widget/chip/actor_action_chip.dart';
 import 'package:flutter_demo/widget/chip/actor_choice_chip.dart';
 import 'package:flutter_demo/widget/chip/actor_input_chip.dart';
@@ -63,6 +64,7 @@ class _DemoListState extends State<DemoList> {
           RaisedButton(child: Text("MyJourneyPageTest"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => MyJourneyPageTest()))),
           RaisedButton(child: Text("TracePage"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => TracePage()))),
           RaisedButton(child: Text("DatetimePicker"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => DatetimePicker()))),
+          RaisedButton(child: Text("DoubleInputPage"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => DoubleInputPage()))),
         ],
       ),
     );
