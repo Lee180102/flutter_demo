@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/custom_widget/datetime_text_field/date_time_text_field.dart';
 import 'package:intl/intl.dart';
 
 class DatetimePicker extends StatefulWidget {
@@ -14,8 +15,6 @@ class _DatetimePickerState extends State<DatetimePicker> {
   DateTime _selectTime1 = DateTime.now();
   DateTime _startTime = DateTime.now();
   DateTime _endTime = DateTime.now();
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -35,41 +34,47 @@ class _DatetimePickerState extends State<DatetimePicker> {
           ),
           InkWell(
             onTap: () {
-              _showDatePicker1();
+              _showCupertinoDatePicker();
             },
             child: Row(
               children: <Widget>[Text(DateFormat('yyyy-MM-dd HH:mm:ss').format(_selectTime1)), Icon(Icons.arrow_drop_down)],
             ),
           ),
           Container(
-              child: InkWell(
-                child: Flex(
-                  direction: Axis.horizontal,
-                  children: <Widget>[
-                    Expanded(
-                      flex: 1,
-                      child: Container(
-                        alignment: Alignment.center,
-                        padding: EdgeInsets.only(left: 20, right: 10, top: 2, bottom: 2),
-                        child: Text("开始时间 $_startTime"),
-                      ),
+            child: InkWell(
+              child: Flex(
+                direction: Axis.horizontal,
+                children: <Widget>[
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      alignment: Alignment.centerRight,
+                      padding: EdgeInsets.only(left: 20, right: 10, top: 2, bottom: 2),
+                      child: Text("开始时间 $_startTime"),
                     ),
-                    Text("-"),
-                    Expanded(
-                      flex: 1,
-                      child: Container(
-                        alignment: Alignment.center,
-                        padding: EdgeInsets.only(left: 10, right: 20, top: 2, bottom: 2),
-                        child: Text("结束时间 $_endTime"),
-                      ),
+                  ),
+                  Text("-"),
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      alignment: Alignment.centerLeft,
+                      padding: EdgeInsets.only(left: 10, right: 20, top: 2, bottom: 2),
+                      child: Text("结束时间 $_endTime"),
                     ),
-                  ],
-                ),
-                onTap: () {
-                  _showDateRangePicker();
-                },
-              )
+                  ),
+                ],
+              ),
+              onTap: () {
+                _showDateRangePicker();
+              },
+            ),
           ),
+
+          DateTimeTextField(
+            onDateTimeChanged: (v) {
+              print("now : " + v.toString());
+            },
+          )
           // SizedBox(
           //   height: 200,
           //   child: CupertinoDatePicker(
@@ -116,7 +121,7 @@ class _DatetimePickerState extends State<DatetimePicker> {
     );
     setState(() {
       if (result != null) {
-       var  _dateRange = '${result.start.year}年${result.start.month}月${result.start.day}日 - ${result.end.year}年${result.end.month}月${result.end.day}日';
+        var _dateRange = '${result.start.year}年${result.start.month}月${result.start.day}日 - ${result.end.year}年${result.end.month}月${result.end.day}日';
         print(_dateRange);
         _startTime = result.start;
         _endTime = result.end;
@@ -124,8 +129,7 @@ class _DatetimePickerState extends State<DatetimePicker> {
     });
   }
 
-  _showDatePicker1() {
-    var date = DateTime.now();
+  _showCupertinoDatePicker() {
     return showCupertinoModalPopup(
       context: context,
       builder: (ctx) {
@@ -133,7 +137,7 @@ class _DatetimePickerState extends State<DatetimePicker> {
           height: 200,
           child: CupertinoDatePicker(
             use24hFormat: true,
-            mode: CupertinoDatePickerMode.date,
+            mode: CupertinoDatePickerMode.dateAndTime,
             maximumYear: 2099,
             minimumYear: 1990,
             onDateTimeChanged: (DateTime value) {

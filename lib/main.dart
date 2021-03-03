@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/custom_widget/widget_list.dart';
-import 'package:flutter_demo/demo/localizations/demo_localizations_delegate.dart';
 import 'package:flutter_demo/demo_list.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_demo/study/study_list_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -101,6 +100,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Text("Widget List"),
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) => WidgetList()));
+                }),
+            RaisedButton(
+                child: Text("组件学习菜单"),
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => StudyListPage()));
                 })
           ],
         ),

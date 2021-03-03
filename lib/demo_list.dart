@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/custom_widget/check_box/check_box_page.dart';
 import 'package:flutter_demo/custom_widget/double_input/double_input_page.dart';
+import 'package:flutter_demo/test/navigator/navigator_no1.dart';
 import 'package:flutter_demo/widget/chip/actor_action_chip.dart';
 import 'package:flutter_demo/widget/chip/actor_choice_chip.dart';
 import 'package:flutter_demo/widget/chip/actor_input_chip.dart';
@@ -11,6 +13,7 @@ import 'package:flutter_demo/widget/transition/transition_list.dart';
 import 'custom_widget/chip/wrap_choice_chip/test.dart';
 import 'demo/datetime_picker/datetime_picker.dart';
 import 'demo/getWidget/get_widget_value.dart';
+import 'demo/localizations/localization_demo_page.dart';
 import 'demo/remove_item/demo01.dart';
 import 'demo/remove_item/remove_item_route.dart';
 import 'demo/remove_item/slide_button_route.dart';
@@ -65,6 +68,9 @@ class _DemoListState extends State<DemoList> {
           RaisedButton(child: Text("TracePage"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => TracePage()))),
           RaisedButton(child: Text("DatetimePicker"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => DatetimePicker()))),
           RaisedButton(child: Text("DoubleInputPage"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => DoubleInputPage()))),
+          RaisedButton(child: Text("国际化测试"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => LocalizationDemoPage()))),
+          RaisedButton(child: Text("路由管理"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => NavigatorNo1()))),
+          RaisedButton(child: Text("圆形复选框"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => CheckBoxPage()))),
         ],
       ),
     );
