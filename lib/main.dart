@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/custom_widget/widget_list.dart';
 import 'package:flutter_demo/demo_list.dart';
+import 'package:flutter_demo/structure/structure_list_page.dart';
 import 'package:flutter_demo/study/study_list_page.dart';
 
 void main() {
@@ -105,7 +106,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Text("组件学习菜单"),
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) => StudyListPage()));
-                })
+                }),
+            RaisedButton(
+                child: Text("组件结构设计"),
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => StructureListPage()));
+                }),
+
           ],
         ),
       ),

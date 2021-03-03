@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/study/CustomPaint%E7%94%BB%E5%9B%BE/custom_paint_page.dart';
+import 'package:flutter_demo/test/check_box/checkboxs_demo.dart';
 
 class StudyListPage extends StatefulWidget {
   StudyListPage({Key key}) : super(key: key);
@@ -18,6 +19,7 @@ class _StudyListPageState extends State<StudyListPage> {
       body: ListView(
         children: [
           RaisedButton(child: Text("CustomPaint画图"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => CustomPaintPage()))),
+          RaisedButton(child: Text("CheckboxesDemo"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => CheckboxesDemo()))),
         ],
       ),
     );

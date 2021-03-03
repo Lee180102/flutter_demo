@@ -25,7 +25,7 @@ class CustomCheckbox extends StatefulWidget {
     this.visualDensity,
     this.focusNode,
     this.autofocus = false,
-    this.borderShape  ,
+    this.borderShape = BorderShape.rect ,
   })  : assert(tristate != null),
         assert(tristate || value != null),
         assert(autofocus != null),
@@ -241,6 +241,7 @@ class _CheckboxRenderObjectWidget extends LeafRenderObjectWidget {
       ..borderShape = borderShape;
   }
 }
+
 //边框的尺寸
 const double _kEdgeSize = Checkbox.width;
 //边框的弧度
@@ -327,14 +328,11 @@ class _RenderCheckbox extends RenderToggleable {
         break;
       case BorderShape.circle:
         Offset offsetInfo = Offset(offset.dx + outer.width / 2.0, offset.dy + outer.width / 2.0);
-        double radius =  outer.width / 2.0;
-        print(offsetInfo);
-        print(radius);
+        double radius = outer.width / 2.0;
         canvas.drawCircle(
           offsetInfo,
           radius,
-          paint
-          ..style = PaintingStyle.stroke,
+          paint..style = PaintingStyle.stroke,
         );
         break;
     }
@@ -395,10 +393,7 @@ class _RenderCheckbox extends RenderToggleable {
             break;
           case BorderShape.circle:
             Offset offsetInfo = Offset(origin.dx + outer.width / 2.0, origin.dy + outer.width / 2.0);
-            double radius =  outer.width / 2.0;
-            print("paint-------");
-            print(offsetInfo);
-            print(radius);
+            double radius = outer.width / 2.0;
             canvas.drawCircle(
               offsetInfo,
               radius,
