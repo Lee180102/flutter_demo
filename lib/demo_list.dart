@@ -21,6 +21,8 @@ import 'demo/time_line/my_journey_page.dart';
 import 'demo/time_line/project_demo/trace_page.dart';
 import 'demo/time_line/time_line_route.dart';
 import 'widget/chip/filter_chip_demo.dart';
+import 'package:flutter_demo/image/image_list.dart';
+import 'image/image_picker_demo.dart';
 
 class DemoList extends StatefulWidget {
   DemoList({Key key}) : super(key: key);
@@ -71,6 +73,9 @@ class _DemoListState extends State<DemoList> {
           RaisedButton(child: Text("国际化测试"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => LocalizationDemoPage()))),
           RaisedButton(child: Text("路由管理"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => NavigatorNo1()))),
           RaisedButton(child: Text("圆形复选框"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => CheckBoxPage()))),
+          RaisedButton(child: Text("图片展示"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => ImageList()))),
+          RaisedButton(child: Text("照相"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => ImagePickerDemo()))),
+
         ],
       ),
     );
