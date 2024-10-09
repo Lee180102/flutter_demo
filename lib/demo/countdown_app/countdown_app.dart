@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:vibration/vibration.dart'; // 引入震动库
 
 class CountdownApp extends StatelessWidget {
   @override
@@ -43,9 +42,7 @@ class _CountdownPageState extends State<CountdownPage> {
 
   // 震动并显示结束提示框，直到用户点击停止震动
   void _vibrateAndShowCompletionDialog() async {
-    if (await Vibration.hasVibrator() ?? false) {
-      _startVibrationLoop(); // 开始手动震动循环
-    }
+
     _showCompletionDialog(); // 弹出提醒框
   }
 
@@ -53,9 +50,7 @@ class _CountdownPageState extends State<CountdownPage> {
   void _startVibrationLoop() {
     _vibrationTimer = Timer.periodic(Duration(seconds: 2), (Timer timer) async {
       // 每 2 秒震动 500 毫秒
-      if (await Vibration.hasVibrator() ?? false) {
-        Vibration.vibrate(duration: 500);
-      }
+
     });
   }
 
@@ -75,9 +70,7 @@ class _CountdownPageState extends State<CountdownPage> {
                 if (_vibrationTimer != null) {
                   _vibrationTimer?.cancel(); // 停止手动循环震动
                 }
-                if (await Vibration.hasVibrator() ?? false) {
-                  Vibration.cancel(); // 停止当前震动
-                }
+
                 Navigator.of(context).pop();
                 _resetTimer(); // 点击确定后重置时间
               },
