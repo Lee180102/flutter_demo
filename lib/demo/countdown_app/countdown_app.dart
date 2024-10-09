@@ -1,5 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/channel/sound_channel/sound_channel.dart';
+import 'package:flutter_demo/channel/vibration_channel/vibration_channel.dart';
 
 class CountdownApp extends StatelessWidget {
   @override
@@ -18,7 +20,17 @@ class CountdownPage extends StatefulWidget {
 class _CountdownPageState extends State<CountdownPage> {
   Timer _timer;
   int _start = 1 * 60; // 30分钟 = 30 * 60秒
-  Timer _vibrationTimer; // 定时震动的 Timer
+  Timer _vibrationTimer;
+
+  @override
+  void initState() {
+    super.initState();
+    SoundChannel.initChannels();
+    VibrationChannel.initChannels();
+  } // 定时震动的 Timer
+
+
+
 
   void startTimer() {
     _timer = Timer.periodic(Duration(seconds: 1), (timer) {
@@ -42,17 +54,21 @@ class _CountdownPageState extends State<CountdownPage> {
 
   // 震动并显示结束提示框，直到用户点击停止震动
   void _vibrateAndShowCompletionDialog() async {
-
+    SoundChannel.playSound('assets/sound/alert.mp3');
+    List<int> pattern = [
+      0,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500
+    ];
+    VibrationChannel.rhythmVibrate(pattern);
     _showCompletionDialog(); // 弹出提醒框
   }
 
-  // 手动震动循环
-  void _startVibrationLoop() {
-    _vibrationTimer = Timer.periodic(Duration(seconds: 2), (Timer timer) async {
-      // 每 2 秒震动 500 毫秒
-
-    });
-  }
 
   // 停止震动并弹出倒计时结束提示框
   void _showCompletionDialog() {
@@ -67,12 +83,10 @@ class _CountdownPageState extends State<CountdownPage> {
               child: Text('确定'),
               onPressed: () async {
                 // 停止震动
-                if (_vibrationTimer != null) {
-                  _vibrationTimer?.cancel(); // 停止手动循环震动
-                }
-
-                Navigator.of(context).pop();
+                VibrationChannel.stopVibration();
+                SoundChannel.stopSound();
                 _resetTimer(); // 点击确定后重置时间
+                Navigator.of(context).pop();
               },
             ),
           ],
