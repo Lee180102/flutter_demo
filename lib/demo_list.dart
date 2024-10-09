@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_demo/custom_widget/check_box/check_box_page.dart';
 import 'package:flutter_demo/demo/countdown_app/countdown_app.dart';
 import 'package:flutter_demo/custom_widget/double_input/double_input_page.dart';
-import 'package:flutter_demo/demo/play_notification_sound/play_notification_sound.dart';
 import 'package:flutter_demo/test/navigator/navigator_no1.dart';
 import 'package:flutter_demo/widget/chip/actor_action_chip.dart';
 import 'package:flutter_demo/widget/chip/actor_choice_chip.dart';
@@ -78,7 +77,6 @@ class _DemoListState extends State<DemoList> {
           RaisedButton(child: Text("图片展示"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => ImageList()))),
           RaisedButton(child: Text("照相"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => ImagePickerDemo()))),
           RaisedButton(child: Text("倒计时应用"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => CountdownApp()))),
-          RaisedButton(child: Text("调用原生铃声代码"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => PlayNotificationSound()))),
 
         ],
       ),

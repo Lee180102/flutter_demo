@@ -4,6 +4,8 @@ import 'package:flutter_demo/demo_list.dart';
 import 'package:flutter_demo/structure/structure_list_page.dart';
 import 'package:flutter_demo/study/study_list_page.dart';
 
+import 'channel/channel_list_page.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -111,6 +113,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Text("组件结构设计"),
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) => StructureListPage()));
+                }),
+            RaisedButton(
+                child: Text("调用原生"),
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => ChannelListPage()));
                 }),
 
           ],
