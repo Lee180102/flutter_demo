@@ -10,9 +10,9 @@ class SoundChannel {
   }
 
   // 调用播放音频的方法
-  static Future<void> playSound(String soundPath) async {
+  static Future<void> playSound(String soundPath, bool loop) async {
     try {
-      await _soundChannel.invokeMethod('playSound', soundPath);
+      await _soundChannel.invokeMethod('playSound', {'path':soundPath,'loop': loop});
     } on PlatformException catch (e) {
       print("Failed to play sound: '${e.message}'.");
     }

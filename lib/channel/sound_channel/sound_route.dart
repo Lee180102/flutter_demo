@@ -23,12 +23,40 @@ class SoundRouteState extends State<SoundRoute> {
         centerTitle: true,
       ),
       body: Center(
-        child: ElevatedButton(
-          child: Text('Play Sound'),
-          onPressed: () {
-            SoundChannel.playSound("assets/sound/alert.mp3"); // 传递音频路径
-          },
-        ),
+        child: Column(
+          children: <Widget>[
+            ElevatedButton(
+              child: Text('Play Sound'),
+              onPressed: () {
+                SoundChannel.playSound("assets/sound/alert.mp3",true); // 传递音频路径
+              },
+            ),
+            ElevatedButton(
+              child: Text('Play Sound'),
+              onPressed: () {
+                SoundChannel.playSound("assets/sound/InspiringEpicCinematic.mp3",true); // 传递音频路径
+              },
+            ),
+            ElevatedButton(
+              child: Text('Play Sound'),
+              onPressed: () {
+                SoundChannel.playSound("assets/sound/SummerUpbeatMotivational.mp3",true); // 传递音频路径
+              },
+            ),
+            ElevatedButton(
+              child: Text('Play Sound'),
+              onPressed: () {
+                SoundChannel.playSound("assets/sound/TravelUpbeatHappyFunBackgroundMusicForVideos.mp3",true); // 传递音频路径
+              },
+            ),
+            ElevatedButton(
+              child: Text('Play Sound'),
+              onPressed: () {
+                SoundChannel.playSound("assets/sound/UpbeatHappyFunTravelBackgroundMusicForVideos.mp3",true); // 传递音频路径
+              },
+            ),
+          ]
+        )
       ),
     );
   }

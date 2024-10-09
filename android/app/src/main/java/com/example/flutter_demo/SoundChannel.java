@@ -48,8 +48,9 @@ public class SoundChannel implements MethodChannel.MethodCallHandler {
 
         switch (call.method) {
             case "playSound":
-                String soundPath = call.arguments(); // 获取从 Flutter 传递的音频路径
-                playSound(soundPath);
+                String soundPath = call.argument("path"); // 获取从 Flutter 传递的音频路径
+                Boolean loop = call.argument("loop");  // 获取是否循环播放
+                playSound(soundPath, loop);
                 result.success(null);
                 break;
             case "stopSound":
@@ -62,12 +63,11 @@ public class SoundChannel implements MethodChannel.MethodCallHandler {
         }
     }
 
-    // 播放指定路径的音频文件
-    private void playSound(String soundPath) {
+    // 播放指定路径的音频文件，支持循环播放
+    private void playSound(String soundPath, Boolean loop) {
         // 检查是否需要重新初始化 MediaPlayer
         if (mediaPlayer != null) {
             mediaPlayer.release();
-            mediaPlayer = null;
         }
 
         try {
@@ -75,13 +75,14 @@ public class SoundChannel implements MethodChannel.MethodCallHandler {
             mediaPlayer = new MediaPlayer();
 
             AssetManager assetManager = mContext.getAssets();
-            // 因为 Flutter 中资源存放在 assets 目录下
+            // Flutter 中资源存放在 assets 目录下
             AssetFileDescriptor afd = assetManager.openFd("flutter_assets/" + soundPath);
             Log.d(TAG, "afd: " + afd);
 
             // 设置数据源
             mediaPlayer.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(), afd.getLength());
             mediaPlayer.prepare();
+            mediaPlayer.setLooping(loop); // 设置是否循环播放
             mediaPlayer.start();
         } catch (IOException e) {
             Log.e(TAG, "Error playing sound from assets", e);

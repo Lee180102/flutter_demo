@@ -17,9 +17,12 @@ class VibrationChannel {
     }
   }
 
-  static Future<void> rhythmVibrate(List<int> pattern) async {
+  static Future<void> rhythmVibrate(List<int> pattern, bool repeat) async {
     try {
-      await _channel.invokeMethod('rhythmVibrate', pattern);
+      await _channel.invokeMethod('rhythmVibrate',   {
+      'pattern': pattern, // 震动模式
+      'repeat': repeat, // 是否重复
+      });
     } on PlatformException catch (e) {
       print("Failed to vibrate: ${e.message}");
     }

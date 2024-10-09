@@ -38,12 +38,13 @@ public class VibrationChannel implements MethodChannel.MethodCallHandler {
                 result.success(null);
                 break;
             case "rhythmVibrate":
-                List<Integer> patternList = methodCall.arguments();  // 从 Flutter 端接收震动模式
+                List<Integer> patternList = methodCall.argument("pattern");  // 从 Flutter 端接收震动模式
+                boolean repeat = Boolean.TRUE.equals(methodCall.argument("repeat")); // 是否重复震动
                 long[] pattern = new long[patternList.size()];
                 for (int i = 0; i < patternList.size(); i++) {
                     pattern[i] = patternList.get(i);
                 }
-                rhythmVibrate(pattern);  // 调用震动方法
+                rhythmVibrate(pattern, repeat); // 调用震动方法
                 result.success(null);
                 break;
             case "stopVibration":
@@ -70,18 +71,21 @@ public class VibrationChannel implements MethodChannel.MethodCallHandler {
         }
     }
 
-    private void rhythmVibrate(long[] pattern) {
-         if (vibrator != null) {
+    private void rhythmVibrate(long[] pattern, boolean repeat) {
+
+
+        if (vibrator != null) {
             if (vibrator.hasVibrator()) {
                 // 配置震动的节奏，格式：{等待时间, 震动时间, 间隔时间, 震动时间, ...}
                 long[] defaultPattern = {0, 1000, 500, 1000};  // 立即震动，震动1秒，暂停0.5秒，再震动1秒
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                     // Android 8.0 (API 26) 及以上，使用 VibrationEffect
-                    vibrator.vibrate(android.os.VibrationEffect.createWaveform(pattern == null || pattern.length == 0 ? defaultPattern : pattern, -1));  // -1 表示不重复
+                    VibrationEffect effect = VibrationEffect.createWaveform(pattern == null || pattern.length == 0 ? defaultPattern : pattern, repeat ? 0 : -1); // repeat 参数：0 表示重复，-1 表示不重复
+                    vibrator.vibrate(effect);
                 } else {
                     // Android 8.0 以下，使用传统方法
-                    vibrator.vibrate(pattern == null || pattern.length == 0 ? defaultPattern : pattern, -1);  // -1 表示不重复
+                    vibrator.vibrate(pattern == null || pattern.length == 0 ? defaultPattern : pattern, repeat ? 0 : -1);  // repeat 参数：0 表示重复，-1 表示不重复
                 }
             }
         } else {
@@ -93,6 +97,10 @@ public class VibrationChannel implements MethodChannel.MethodCallHandler {
         if (vibrator != null && vibrator.hasVibrator()) {
             vibrator.cancel();
         }
+    }
+
+    public void release() {
+        stopVibration();
     }
 
 }

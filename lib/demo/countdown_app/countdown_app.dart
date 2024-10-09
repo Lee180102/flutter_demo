@@ -29,13 +29,10 @@ class _CountdownPageState extends State<CountdownPage> {
     VibrationChannel.initChannels();
   } // 定时震动的 Timer
 
-
-
-
   void startTimer() {
     _timer = Timer.periodic(Duration(seconds: 1), (timer) {
       setState(() {
-        if (_start > 0) {
+        if (_start > 1) {
           _start--;
         } else {
           _timer?.cancel();
@@ -54,30 +51,21 @@ class _CountdownPageState extends State<CountdownPage> {
 
   // 震动并显示结束提示框，直到用户点击停止震动
   void _vibrateAndShowCompletionDialog() async {
-    SoundChannel.playSound('assets/sound/alert.mp3');
-    List<int> pattern = [
-      0,
-      500,
-      500,
-      500,
-      500,
-      500,
-      500,
-      500
-    ];
-    VibrationChannel.rhythmVibrate(pattern);
+    SoundChannel.playSound('assets/sound/InspiringEpicCinematic.mp3', true);
+    List<int> pattern = [500, 500, 500];
+    VibrationChannel.rhythmVibrate(pattern, true);
     _showCompletionDialog(); // 弹出提醒框
   }
-
 
   // 停止震动并弹出倒计时结束提示框
   void _showCompletionDialog() {
     showDialog(
+      barrierDismissible: false, // 设置为 false 后点击外部不会关闭弹框
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text('倒计时结束'),
-          content: Text('30分钟倒计时已结束！'),
+          content: Text('倒计时已结束！'),
           actions: <Widget>[
             TextButton(
               child: Text('确定'),

@@ -36,7 +36,7 @@ class _VibrationRouteState extends State<VibrationRoute> {
                 500,
                 1000
               ]; // 延迟0ms，震动1秒，暂停0.5秒，再震动1秒
-              VibrationChannel.rhythmVibrate(pattern); // 调用震动
+              VibrationChannel.rhythmVibrate(pattern, true); // 调用震动
             },
             child: Text('Vibrate'),
           ),
