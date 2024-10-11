@@ -10,6 +10,8 @@ class Countdown extends StatefulWidget {
       this.fontSize = 40,
       this.vibration = false,
       this.sound = false,
+      this.onPressed,
+      this.buttonText,
       this.soundAssetPath})
       : assert(minutes != null),
         super(key: key);
@@ -19,6 +21,8 @@ class Countdown extends StatefulWidget {
   final bool vibration;
   final bool sound;
   final String soundAssetPath;
+  final String buttonText;
+  final VoidCallback onPressed;
 
   @override
   _CountdownState createState() => _CountdownState();
@@ -135,8 +139,9 @@ class _CountdownState extends State<Countdown> {
           ElevatedButton(
             onPressed: () {
               startTimer();
+              widget.onPressed();
             },
-            child: Text('开始倒计时'),
+            child: Text(widget.buttonText ?? '开始倒计时'),
           ),
         ],
       ),

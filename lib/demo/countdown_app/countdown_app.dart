@@ -43,6 +43,10 @@ class _CountdownPageState extends State<CountdownPage> {
               vibration: true,
               sound: true,
               soundAssetPath: 'assets/sound/InspiringEpicCinematic.mp3',
+              buttonText: "Start countdown",
+              onPressed:  () async {
+                print('Start');
+              },
             )
           ],
         ),
