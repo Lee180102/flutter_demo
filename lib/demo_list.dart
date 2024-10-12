@@ -12,6 +12,7 @@ import 'package:flutter_demo/widget/signature/signature_demo.dart';
 import 'package:flutter_demo/widget/transition/transition_list.dart';
 
 import 'custom_widget/chip/wrap_choice_chip/test.dart';
+import 'demo/countdown_app/provider/countdown_with_provider_route.dart';
 import 'demo/datetime_picker/datetime_picker.dart';
 import 'demo/getWidget/get_widget_value.dart';
 import 'demo/localizations/localization_demo_page.dart';
@@ -77,6 +78,7 @@ class _DemoListState extends State<DemoList> {
           RaisedButton(child: Text("图片展示"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => ImageList()))),
           RaisedButton(child: Text("照相"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => ImagePickerDemo()))),
           RaisedButton(child: Text("倒计时应用"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => CountdownApp()))),
+          RaisedButton(child: Text("使用Provider管理状态的倒计时应用"), onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => CountdownWithProviderRoute()))),
 
         ],
       ),
